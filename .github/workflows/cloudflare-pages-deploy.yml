@@ -1,0 +1,17 @@
+name: Trigger Cloudflare Pages Build
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  trigger-cloudflare-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages Build Webhook
+        uses: joelwmale/webhook-action@2.4.1
+        with:
+          url: ${{ secrets.CLOUDFLARE_WEBHOOK_URL }}
