@@ -1,7 +1,97 @@
 ---
 title: Button
-description: Interactive control. Place anywhere user actions are needed.
-category: forms
+description: Versatile button component with multiple variants, sizes, and interactive states.
+category: Form
+links:
+  github: https://github.com/sprocketui/sprocket-ui/tree/main/packages/vue-button
+  npm: https://www.npmjs.com/package/@sprocket-ui/vue-button
+  bundleSize: https://bundlephobia.com/package/@sprocket-ui/vue-button
+  ariaPattern: https://www.w3.org/WAI/ARIA/apg/patterns/button/
 ---
 
-# This is the react docs section
+<Install packageName="@sprocket-ui/vue-button" />
+
+<Preview component="button" />
+
+<CodeSample component="button" framework="vue" />
+
+## Usage
+
+The Button component for Vue provides a flexible, accessible button with support for multiple variants and states.
+
+### Basic Example
+
+```vue
+<script setup>
+import { Button } from '@sprocket-ui/vue-button';
+</script>
+
+<template>
+  <Button @press="handleClick">
+    Click me
+  </Button>
+</template>
+```
+
+### With Variants
+
+```vue
+<script setup>
+import { Button } from '@sprocket-ui/vue-button';
+</script>
+
+<template>
+  <div class="flex gap-4">
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="outline">Outline</Button>
+  </div>
+</template>
+```
+
+<API
+  component="button"
+  framework="vue"
+  sections={[
+    {
+      title: 'Props',
+      props: [
+        {
+          name: 'variant',
+          type: '"primary" | "secondary" | "outline"',
+          default: '"primary"',
+          description: 'Visual style variant of the button.',
+        },
+        {
+          name: 'size',
+          type: '"sm" | "md" | "lg"',
+          default: '"md"',
+          description: 'Size of the button.',
+        },
+        {
+          name: 'isDisabled',
+          type: 'boolean',
+          default: 'false',
+          description: 'Whether the button is disabled.',
+        },
+        {
+          name: 'isLoading',
+          type: 'boolean',
+          default: 'false',
+          description: 'Whether the button is in a loading state.',
+        },
+      ],
+    },
+    {
+      title: 'Events',
+      props: [
+        {
+          name: '@press',
+          type: '(e: PressEvent) => void',
+          default: '—',
+          description: 'Handler called when the button is pressed.',
+        },
+      ],
+    },
+  ]}
+/>
