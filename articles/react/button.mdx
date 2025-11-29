@@ -1,84 +1,119 @@
 ---
 title: Button
-description: Versatile button component with multiple variants, sizes, and interactive states.
+description: A customizable button component with multiple variants and states.
 category: Form
 links:
-  github: https://github.com/sprocketui/sprocket-ui/tree/main/packages/vue-button
-  npm: https://www.npmjs.com/package/@sprocket-ui/vue-button
-  bundleSize: https://bundlephobia.com/package/@sprocket-ui/vue-button
+  github: https://github.com/sprocketui/sprocket-ui/tree/main/packages/button
+  npm: https://www.npmjs.com/package/@sprocket-ui/button
+  bundleSize: https://bundlephobia.com/package/@sprocket-ui/button
   ariaPattern: https://www.w3.org/WAI/ARIA/apg/patterns/button/
 ---
 
-<Install packageName="@sprocket-ui/vue-button" />
+<Install packageName="@sprocket-ui/button" />
 
-<Preview component="button" />
-
-<CodeSample component="button" framework="vue" />
+<Preview
+  component="button"
+  filename="button"
+  language="tsx"
+  code={'import { Button } from \'@sprocket-ui/button\';\n\nfunction Example() {\n  return (\n    <Button\n      variant="primary"\n      className="px-4 py-2 rounded-lg"\n      onPress={() => alert(\'Clicked!\')}\n    >\n      Click me\n    </Button>\n  );\n}'}
+/>
 
 ## Usage
 
-The Button component for Vue provides a flexible, accessible button with support for multiple variants and states.
+The Button component is a flexible, accessible button with multiple variants and states.
 
 ### Basic Example
 
-```vue
-<script setup>
-import { Button } from '@sprocket-ui/vue-button';
-</script>
+```tsx
+import { Button } from '@sprocket-ui/button';
 
-<template>
-  <Button @press="handleClick">
-    Click me
-  </Button>
-</template>
+<Button onPress={() => alert('Clicked!')}>
+  Click me
+</Button>
 ```
 
-### With Variants
+### Variants
 
-```vue
-<script setup>
-import { Button } from '@sprocket-ui/vue-button';
-</script>
+```tsx
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="danger">Danger</Button>
+```
 
-<template>
-  <div class="flex gap-4">
-    <Button variant="primary">Primary</Button>
-    <Button variant="secondary">Secondary</Button>
-    <Button variant="outline">Outline</Button>
-  </div>
-</template>
+### Sizes
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
+```
+
+### States
+
+```tsx
+{/* Loading state */}
+<Button isPending>Loading...</Button>
+
+{/* Disabled state */}
+<Button isDisabled>Disabled</Button>
 ```
 
 <API
   component="button"
-  framework="vue"
+  framework="react"
   sections={[
     {
       title: 'Props',
       props: [
         {
-          name: 'variant',
-          type: '"primary" | "secondary" | "outline"',
-          default: '"primary"',
-          description: 'Visual style variant of the button.',
-        },
-        {
-          name: 'size',
-          type: '"sm" | "md" | "lg"',
-          default: '"md"',
-          description: 'Size of the button.',
+          name: 'isPending',
+          type: 'boolean',
+          default: '—',
+          description: 'Whether the button is in a pending state. This disables press and hover events while retaining focusability, and announces the pending state to screen readers.',
         },
         {
           name: 'isDisabled',
           type: 'boolean',
-          default: 'false',
-          description: 'Whether the button is disabled.',
+          default: '—',
+          description: 'Whether the button is disabled. This prevents the user from interacting with the button.',
         },
         {
-          name: 'isLoading',
+          name: 'autoFocus',
           type: 'boolean',
-          default: 'false',
-          description: 'Whether the button is in a loading state.',
+          default: '—',
+          description: 'Whether the element should receive focus on render.',
+        },
+        {
+          name: 'variant',
+          type: "'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'",
+          default: "'primary'",
+          description: 'The visual style variant of the button.',
+        },
+        {
+          name: 'size',
+          type: "'sm' | 'md' | 'lg'",
+          default: "'md'",
+          description: 'The size of the button.',
+        },
+        {
+          name: 'children',
+          type: 'ReactNode',
+          default: '—',
+          description: 'The content to display inside the button.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          default: '—',
+          description: 'Additional CSS classes to apply to the button.',
+        },
+        {
+          name: 'style',
+          type: 'CSSProperties',
+          default: '—',
+          description: 'Inline styles to apply to the button.',
         },
       ],
     },
@@ -86,12 +121,156 @@ import { Button } from '@sprocket-ui/vue-button';
       title: 'Events',
       props: [
         {
-          name: '@press',
+          name: 'onPress',
           type: '(e: PressEvent) => void',
           default: '—',
-          description: 'Handler called when the button is pressed.',
+          description: 'Handler that is called when the press is released over the target.',
+        },
+        {
+          name: 'onPressStart',
+          type: '(e: PressEvent) => void',
+          default: '—',
+          description: 'Handler that is called when a press interaction starts.',
+        },
+        {
+          name: 'onPressEnd',
+          type: '(e: PressEvent) => void',
+          default: '—',
+          description: 'Handler that is called when a press interaction ends, either over the target or when the pointer leaves the target.',
+        },
+        {
+          name: 'onPressChange',
+          type: '(isPressed: boolean) => void',
+          default: '—',
+          description: 'Handler that is called when the press state changes.',
+        },
+        {
+          name: 'onPressUp',
+          type: '(e: PressEvent) => void',
+          default: '—',
+          description: 'Handler that is called when a press is released over the target, regardless of whether it started on the target or not.',
+        },
+        {
+          name: 'onFocus',
+          type: '(e: FocusEvent) => void',
+          default: '—',
+          description: 'Handler that is called when the element receives focus.',
+        },
+        {
+          name: 'onBlur',
+          type: '(e: FocusEvent) => void',
+          default: '—',
+          description: 'Handler that is called when the element loses focus.',
+        },
+        {
+          name: 'onFocusChange',
+          type: '(isFocused: boolean) => void',
+          default: '—',
+          description: 'Handler that is called when the element\'s focus status changes.',
+        },
+        {
+          name: 'onKeyDown',
+          type: '(e: KeyboardEvent) => void',
+          default: '—',
+          description: 'Handler that is called when a key is pressed.',
+        },
+        {
+          name: 'onKeyUp',
+          type: '(e: KeyboardEvent) => void',
+          default: '—',
+          description: 'Handler that is called when a key is released.',
+        },
+      ],
+    },
+    {
+      title: 'Layout',
+      props: [
+        {
+          name: 'slot',
+          type: 'string',
+          default: '—',
+          description: 'A slot name for the component. Slots allow the component to receive props from a parent component.',
+        },
+      ],
+    },
+    {
+      title: 'Accessibility',
+      props: [
+        {
+          name: 'id',
+          type: 'string',
+          default: '—',
+          description: 'The element\'s unique identifier.',
+        },
+        {
+          name: 'excludeFromTabOrder',
+          type: 'boolean',
+          default: '—',
+          description: 'Whether to exclude the element from the sequential tab order. If true, the element will not be focusable via the keyboard by tabbing.',
+        },
+        {
+          name: 'aria-label',
+          type: 'string',
+          default: '—',
+          description: 'Defines a string value that labels the current element.',
+        },
+        {
+          name: 'aria-labelledby',
+          type: 'string',
+          default: '—',
+          description: 'Identifies the element (or elements) that labels the current element.',
+        },
+        {
+          name: 'aria-describedby',
+          type: 'string',
+          default: '—',
+          description: 'Identifies the element (or elements) that describes the object.',
+        },
+        {
+          name: 'aria-details',
+          type: 'string',
+          default: '—',
+          description: 'Identifies the element (or elements) that provide a detailed, extended description for the object.',
+        },
+        {
+          name: 'aria-controls',
+          type: 'string',
+          default: '—',
+          description: 'Identifies the element (or elements) whose contents or presence are controlled by the current element.',
+        },
+        {
+          name: 'aria-expanded',
+          type: 'boolean | "true" | "false"',
+          default: '—',
+          description: 'Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed.',
+        },
+        {
+          name: 'aria-haspopup',
+          type: 'boolean | "menu" | "listbox" | "tree" | "grid" | "dialog"',
+          default: '—',
+          description: 'Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.',
+        },
+        {
+          name: 'aria-pressed',
+          type: 'boolean | "true" | "false" | "mixed"',
+          default: '—',
+          description: 'Indicates the current "pressed" state of toggle buttons.',
         },
       ],
     },
   ]}
 />
+
+## Accessibility
+
+The Button component follows WAI-ARIA best practices:
+
+- Uses semantic `<button>` element
+- Supports all ARIA attributes for enhanced accessibility
+- Disabled and pending states are properly communicated to assistive technologies
+- Keyboard navigation works as expected (Space/Enter to activate)
+- Focus management is handled automatically
+
+## Styling
+
+The Button component is built with Tailwind CSS and supports full customization through the `className` prop. You can extend or override any of the default styles.
