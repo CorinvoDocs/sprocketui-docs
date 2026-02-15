@@ -47,9 +47,11 @@ import { Input } from '@sprocket-ui/input';
   placeholder="Enter text..."
   onChange={(e) => console.log(e.target.value)}
 />
+```
 
 Input Types
 
+```
 {/* Text input */}
 <Input type="text" placeholder="Username" />
 
@@ -70,9 +72,11 @@ Input Types
 
 {/* Tel input */}
 <Input type="tel" placeholder="+1 (555) 000-0000" />
+```
 
 Controlled Input
 
+```tsx
 import { useState } from 'react';
 import { Input } from '@sprocket-ui/input';
 
@@ -87,9 +91,11 @@ function ControlledExample() {
     />
   );
 }
+```
 
 States
 
+```tsx
 {/* Disabled state */}
 <Input isDisabled placeholder="Disabled input" />
 
@@ -101,9 +107,10 @@ States
 
 {/* Required field */}
 <Input isRequired placeholder="Required field" />
-
+```
 With Validation
 
+```tsx
 import { useState } from 'react';
 import { Input } from '@sprocket-ui/input';
 
@@ -136,9 +143,11 @@ function ValidationExample() {
     </div>
   );
 }
+```
 
 With Label
 
+```tsx
 import { Input } from '@sprocket-ui/input';
 import { Label } from '@sprocket-ui/label';
 
@@ -146,6 +155,7 @@ import { Label } from '@sprocket-ui/label';
   <Label htmlFor="username">Username</Label>
   <Input id="username" placeholder="Enter username" />
 </div>
+```
 
 <API
   component="input"
@@ -251,6 +261,7 @@ Styling
 
 The Input component is unstyled by default:
 
+```tsx
 {/* Basic styling */}
 <Input
   className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -270,3 +281,4 @@ The Input component is unstyled by default:
   className="px-4 py-2 border border-gray-200 rounded-lg bg-gray-100 text-gray-400 cursor-not-allowed"
   placeholder="Disabled input"
 />
+```
