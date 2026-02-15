@@ -49,9 +49,9 @@ import { Input } from '@sprocket-ui/input';
 />
 ```
 
-Input Types
+### Input Types
 
-```
+```tsx
 {/* Text input */}
 <Input type="text" placeholder="Username" />
 
@@ -74,7 +74,7 @@ Input Types
 <Input type="tel" placeholder="+1 (555) 000-0000" />
 ```
 
-Controlled Input
+### Controlled Input
 
 ```tsx
 import { useState } from 'react';
@@ -93,7 +93,7 @@ function ControlledExample() {
 }
 ```
 
-States
+### States
 
 ```tsx
 {/* Disabled state */}
@@ -108,7 +108,8 @@ States
 {/* Required field */}
 <Input isRequired placeholder="Required field" />
 ```
-With Validation
+
+### With Validation
 
 ```tsx
 import { useState } from 'react';
@@ -145,7 +146,7 @@ function ValidationExample() {
 }
 ```
 
-With Label
+### With Label
 
 ```tsx
 import { Input } from '@sprocket-ui/input';
@@ -246,18 +247,18 @@ import { Label } from '@sprocket-ui/label';
   ]}
 />
 
-Accessibility
+## Accessibility
 
 The Input component follows WAI-ARIA best practices:
 
-- Uses semantic <input> element for proper form integration
+- Uses semantic `<input>` element for proper form integration
 - Automatically sets aria-invalid when isInvalid prop is true
 - Automatically sets aria-disabled when isDisabled prop is true
 - Automatically sets aria-readonly when isReadOnly prop is true
 - Automatically sets aria-required when isRequired prop is true
 - Focus management and keyboard navigation work as expected
 
-Styling
+## Styling
 
 The Input component is unstyled by default:
 
