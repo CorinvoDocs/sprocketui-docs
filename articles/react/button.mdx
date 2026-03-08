@@ -18,11 +18,16 @@ features:
 <Install packageName="@sprocket-ui/button" />
 
 <Preview
-  component="button"
-  filename="button"
-  language="tsx"
-  code={'import { Button } from \'@sprocketui/react\';\n\nfunction Example() {\n  return (\n    <Button\n      variant="primary"\n      className="px-4 py-2 rounded-lg"\n      onPress={() => alert(\'Clicked!\')}\n    >\n      Click me\n    </Button>\n  );\n}'}
-/>
+    component="button"
+    storyId="components-button--default"
+    controls={[
+      { name: "children", type: "text", label: "Label", default: "Click me" },
+      { name: "isDisabled", type: "boolean", label: "Disabled" },
+      { name: "variant", type: "select", label: "Variant", options: ["primary", "secondary", "outline", "ghost",
+  "danger"], default: "primary" },
+      { name: "size", type: "select", label: "Size", options: ["sm", "md", "lg"], default: "md" },
+    ]}
+  />
 
 ### Anatomy
 
