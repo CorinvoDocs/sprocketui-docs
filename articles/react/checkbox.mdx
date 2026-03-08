@@ -1,0 +1,96 @@
+  ---
+  title: Checkbox
+  description: An accessible checkbox component with support for indeterminate state, custom styling via render
+  props, and keyboard navigation.
+  category: Form
+  features:
+    - Accessible checkbox with ARIA support
+    - Render prop API for full style control
+    - Indeterminate state support
+    - Keyboard navigation (Space to toggle)
+    - Works as controlled or uncontrolled
+  links:
+    github: https://github.com/user/sprocketui/tree/main/packages/@sprocketui-react/sprocketui-react-checkbox
+    npm: https://www.npmjs.com/package/@sprocketui-react/checkbox
+    ariaPattern: https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/
+  ---
+
+  ## Overview
+
+  The `Checkbox` component provides an accessible toggle input built on WAI-ARIA checkbox pattern. It supports
+  render props for full visual customization, indeterminate state, and works seamlessly with form libraries.
+
+  <Preview
+    storyId="components-checkbox--default"
+    code={`import { Checkbox } from '@sprocketui/react';
+
+  <Checkbox onChange={(checked) => console.log(checked)}>
+    Enable notifications
+  </Checkbox>`}
+  />
+
+  ## Installation
+
+  <Install package="@sprocketui/react" />
+
+  ## Usage
+
+  <CodeSample
+    filename="Basic.tsx"
+    language="tsx"
+    code={`import { Checkbox } from '@sprocketui/react';
+
+  function App() {
+    const [checked, setChecked] = useState(false);
+
+    return (
+      <Checkbox
+        isSelected={checked}
+        onChange={setChecked}
+      >
+        Accept terms
+      </Checkbox>
+    );
+  }`}
+  />
+
+  <CodeSample
+    filename="Indeterminate.tsx"
+    language="tsx"
+    code={`import { Checkbox } from '@sprocketui/react';
+
+  function SelectAll({ items, selected, onToggleAll }) {
+    const allSelected = selected.length === items.length;
+    const someSelected = selected.length > 0 && !allSelected;
+
+    return (
+      <Checkbox
+        isSelected={allSelected}
+        isIndeterminate={someSelected}
+        onChange={onToggleAll}
+      >
+        Select all
+      </Checkbox>
+    );
+  }`}
+  />
+
+  ## API
+
+  <API
+    props={[
+      { name: 'children', type: 'ReactNode', description: 'Label content for the checkbox.' },
+      { name: 'isSelected', type: 'boolean', description: 'Whether the checkbox is checked (controlled).' },
+      { name: 'defaultSelected', type: 'boolean', description: 'Whether the checkbox is initially checked
+  (uncontrolled).' },
+      { name: 'isIndeterminate', type: 'boolean', description: 'Whether the checkbox is in an indeterminate
+  state.' },
+      { name: 'isDisabled', type: 'boolean', description: 'Whether the checkbox is disabled.' },
+      { name: 'onChange', type: '(isSelected: boolean) => void', description: 'Called when the checked state
+  changes.' },
+      { name: 'name', type: 'string', description: 'Name for form submission.' },
+      { name: 'value', type: 'string', description: 'Value for form submission.' },
+      { name: 'style', type: 'CSSProperties | ((state) => CSSProperties)', description: 'Style object or render
+  prop function receiving component state.' },
+    ]}
+  />
