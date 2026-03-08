@@ -17,13 +17,11 @@ features:
 
 <Install packageName="@sprocket-ui/button" />
 
-<Preview
-    component="button"
+ <Preview
     storyId="components-button--default"
-    controls={[
-      { name: "children", type: "text", label: "Label", default: "Click me" },
-      { name: "isDisabled", type: "boolean", label: "Disabled" },
-    ]}
+    code={`import { Button } from '@sprocketui/react';
+
+  <Button>Click me</Button>`}
   />
 
 ### Anatomy
