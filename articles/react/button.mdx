@@ -192,7 +192,6 @@ Contains the content for the button.
         {
           name: 'slot',
           type: 'string',
-          default: '—',
           description: 'A slot name for the component. Slots allow the component to receive props from a parent component.',
         },
       ],
@@ -268,6 +267,26 @@ Contains the content for the button.
           {
             name: '[data-hover]',
             type: 'boolean'
+          },
+          {
+            name: '[data-pressed]',
+            type: 'boolean'
+          },
+          {
+            name: '[data-focused]',
+            type: 'boolean'
+          },
+          {
+            name: '[data-focused-visible]',
+            type: 'boolean'
+          },
+          {
+            name: '[data-disabled]',
+            type: 'boolean'
+          },
+           {
+            name: '[data-pending]',
+            type: 'boolean'
           }
         ]
       }
@@ -276,7 +295,7 @@ Contains the content for the button.
 
 ## Accessibility
 
-This component is based on the native ⁠`button` element and supports all of its props. It handles press interactions across mouse, touch, pen, and keyboard, normalizing behavior across browsers and platforms. It includes support for pressed states, disabled states, and accessible labelling via ARIA attributes.
+This component is based on the native `button` element and supports all of its props. It handles press interactions across mouse, touch, pen, and keyboard, normalizing behavior across browsers and platforms. It includes support for pressed states, disabled states, and accessible labelling via ARIA attributes.
 
 ## Styling
 
