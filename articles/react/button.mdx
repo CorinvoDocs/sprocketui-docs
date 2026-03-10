@@ -30,8 +30,7 @@ features:
   `}
 />
 
-<Install packageName="@sprocketui-react/button" />
-
+<Install package="@sprocketui-react/button" />
 
 ### Anatomy
 
@@ -69,6 +68,12 @@ export default () => (
 <Button isDisabled>Disabled</Button>
 ```
 
+### API Reference
+
+## Root
+
+Contains the content for the button.
+
 <API
   component="button"
   framework="react"
@@ -93,18 +98,6 @@ export default () => (
           type: 'boolean',
           default: '—',
           description: 'Whether the element should receive focus on render.',
-        },
-        {
-          name: 'variant',
-          type: "'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'",
-          default: "'primary'",
-          description: 'The visual style variant of the button.',
-        },
-        {
-          name: 'size',
-          type: "'sm' | 'md' | 'lg'",
-          default: "'md'",
-          description: 'The size of the button.',
         },
         {
           name: 'children',
