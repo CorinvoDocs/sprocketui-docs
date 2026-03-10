@@ -15,7 +15,22 @@ features:
     - Loading state with automatic disabled behavior.
 ---
 
-<ButtonPreview />
+export const ButtonPreview = () => {
+  return (
+    <div>Hello</div>
+  )
+}
+<PreviewWindow
+  code={`import { Button } from '@sprocketui/react';
+
+  export default function App() {
+    return <Button>Initialize</Button>;
+  }`}
+    filename="App"
+    language="tsx"
+  >
+    <ButtonPreview />
+</PreviewWindow>
 
 ## Installation
 
